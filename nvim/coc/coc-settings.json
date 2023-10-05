@@ -1,0 +1,43 @@
+{
+  "suggest.noselect": true,
+  "diagnostic.virtualText": true,
+  "list.insertMappings": {
+    "<C-b>": "prompt:left",
+    "<C-f>": "prompt:right",
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k",
+    "<C-c>": "do:exit"
+  },
+  "list.normalMappings": {
+    "<C-j>": "normal:j",
+    "<C-k>": "normal:k",
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k",
+    "q": "do:exit",
+    "<C-c>": "do:exit"
+  },
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "args": ["--stdio"],
+      "filetypes": ["dockerfile"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"]
+    },
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["c", "cpp", "objc", "objcpp"]
+    },
+    "golang": {
+      "command": "gopls",
+      "filetypes": ["go"]
+    },
+    "python": {
+      "command": "pyls",
+      "filetypes": ["python"]
+    }
+  }
+}

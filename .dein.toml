@@ -1,0 +1,152 @@
+### .dein.toml
+#
+# in case you need to update,
+# 1). brew update,brew upgrade neovim
+# 2). pip install --upgrade pynvim
+# 3). (on vim) :UpdateRemotePlugins,:checkhealth,:call dein#update()
+
+### plugin manager
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+### search
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+### edit
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+rev = 'release'
+# depends: node,yarn
+# extensions: coc-{explorer,vimlsp,json,yaml,tsserver,html,css,phpls,solargraph,pyright,go,emmet,snippets,java}
+# LangServer: clangd,go-langserver,terraform-ls,python-language-server,solargraph
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+hook_add = '''
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+'''
+
+[[plugins]]
+repo = 'simnalamburt/vim-mundo'
+hook_source = '''
+  let g:mundo_preview_bottom = 1
+  let g:mundo_width = 35
+  let g:mundo_preview_statusline = '[Undotree-preview]'
+  let g:mundo_tree_statusline  = '[Undotree]'
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'tpope/vim-speeddating'
+
+### external integration
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  let g:gitgutter_sign_modified_removed = '~'
+'''
+
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
+hook_add = '''
+  let g:git_messenger_no_default_mappings = v:true
+'''
+
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+depends = ['coc.nvim']
+
+### filetype source
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+### utility
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+
+[[plugins]]
+<<<<<<< HEAD
+repo = 'flazz/vim-colorschemes'
+
+[[plugins]]
+repo = 'osyo-manga/vim-trip'
+
+[[plugins]]
+repo = 'haya14busa/vim-edgemotion'
+
+[[plugins]]
+repo = 'andymass/vim-tradewinds'
+
+[[plugins]]
+repo = 't9md/vim-quickhl'
+
+[[plugins]]
+repo = 'qpkorr/vim-bufkill'
+
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+  let g:quickrun_config = {
+  \ "runner" : "vimproc",
+  \ "runner/vimproc/updatetime" : 60,
+  \	"_" : {
+  \  "outputter/buffer/split" : ":botright",
+  \  "outputter/error/success" : "buffer",
+  \  "outputter/error/error/" : "quickfix",
+  \  "outputter/buffer/into" : "1",
+  \  "outputter/quickfix/errorformat" : "%f:%l,%m in %f on line %l",
+  \  "outputter/buffer/close_on_empty" : 1,
+  \  "outputter" : "error"
+  \  }
+  \}
+  let g:quickrun_config['cs']  = {
+  \ 'command' : 'mcs',
+  \ 'exec' : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
+  \ 'cmdopt' : '-warn:4',
+  \ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+  \}
+  let g:quickrun_no_default_key_mappings = 1
+  nnoremap <Leader>e :QuickRun -mode n<CR>
+  xnoremap <Leader>e :QuickRun -mode v<CR>
+  nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+  au FileType qf nnoremap <silent><buffer>q :quit<CR>
+'''
+
+=======
+repo = 'Shougo/neocomplete.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+>>>>>>> 1e770bb (updated configuration)
